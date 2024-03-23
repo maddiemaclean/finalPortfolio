@@ -1,6 +1,6 @@
 ------------------- ( Part One ) -------------------
 
-name = input("Please enter your name:")
+name = input("Please enter your name:") # Example of userInput in Python
 age = input("Please enter your age:")
 tryAgain = int(1)
 ageMath = 16 - int(age)
@@ -22,19 +22,19 @@ while tryAgain == 1:
         ageMath2 = int(age)-16
         tryAgain = 1
 
+# NOTE: in python, variables are dynamically typed, meaning they don't have a type (int,string etc) so with userInput you need to cast them
+
 ------------------- ( Part Two)  -------------------
 
 import math
-
-def av (val):
+def av (val): # this function takes the absolute value of a number
     if val >= 0:
         return 0
     else:
         return -val 
         
-a = (input("Please enter your 'a' variable:"))
-b = (input("Please enter your 'b' variable:"))
-
+a = input("Please enter your 'a' variable:")
+b = input("Please enter your 'b' variable:")
 
 while a !='X':
     inside = ((float(a) - 1)**5)-(float(b) + 1)
