@@ -4,6 +4,8 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
+// r1 allows us to manage userInput
+
 function askUser() {
     rl.question("Select a command: ", function(userInput) {
         if (userInput === "q") {
@@ -21,7 +23,7 @@ function askUser() {
                     console.log(num + " is the factorial number of: " + factNum);
                 }
 
-                askUser(); 
+                askUser(); // bascially acts as a recursive call
             });
         } else {
             console.log("Invalid command. Please enter 'n' or 'q'.");
@@ -35,14 +37,18 @@ console.log("   q: quit");
 
 askUser(); // Initial call to start the process
 
-function is_factorial(numIn) {
-    const num = parseInt(numIn);
+function is_factorial(numIn) { // this method figures out if a number is a factorial or not
+    const num = parseInt(numIn); // with this method we still need to cast
 
-    if (num < 0) {
+    if (num < 0) { // negative numbers cannot be a factorial
         return -1;
-    } else if (num === 0) {
+    }
+    
+    else if (num === 0) { // zero is not a factorial
         return 0;
-    } else {
+    }
+    
+    else { // calculates the factorial if it's a valid number
         let i = 1;
         let result = 1;
 
