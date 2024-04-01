@@ -35,26 +35,26 @@ Lab 19: Racket - class creation, object instantation, accessors and mutators, me
 
 # **PROGRAMMING QUESTIONS**
 
-PQ: Python 1
+PQ: Python 1 - strings(parsing and tokenization), conditionals, looping and lists
 
-PQ: Python 2
+PQ: Python 2 - fileIO, math, looping and conditionals
 
-PQ: Python 3
+PQ: Python 3 - OOP, data structure creation, searching and sorting
 
-PQ: JavaScript 1
+PQ: JavaScript 1 - data and time, strings, conditionals, input and output
 
-PQ: JavaScript 2
+PQ: JavaScript 2 - fileIO, math, conditional, looping and lists
 
-PQ: JavaScript 3
+PQ: JavaScript 3 - JSON and HTTP Requests
 
-PQ: Racket 1 
+PQ: Racket 1 - anoynomous functions, recursion, lists and expressions, statements and variables
 
-PQ: Racket 2
+PQ: Racket 2 - fileIO, math, conditional, looping and lists
 
-PQ: Racket 3
+PQ: Racket 3 - OOP, binary search trees and strings
 
-PQ: Octave 1
+PQ: Octave 1 - fileIO, csv fileIO, vectors/matrixes and expressions, statements and variables
 
-PQ: Octave 2
+PQ: Octave 2 - fileIO, math, conditional, looping and lists
 
-PQ: Octave 3
+PQ: Octave 3 - fileIO, naive bayes, string and cells
