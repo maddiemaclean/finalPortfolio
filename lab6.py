@@ -27,7 +27,7 @@ def longestWords(stringIn): # a basic find max function in Python and adds them 
     
 # most common letter
 def commonLetter(stringIn):
-    words = stringIn.split()
+    words = stringIn.split() #split(): breaks a string into a list of substrings, the default is to split from spaces but you could put something in the brackets to be something else
     mostCommonLetter = ''
     maxCount = 0
 
