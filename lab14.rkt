@@ -13,34 +13,23 @@ lang racket
     [(= pos 60)'()]
     [else (cons pos (sixty( + 1 pos)))]))
     
-      
-
 (sixty 0)
-
-
-
-
 
 (velocity 10)
 
-(define (matching listA listB startPos)
+(define (matching listA listB startPos) ; takes in two lists, iterates through them and figures out if the values are equal
   (cond
     [(or(empty? listA )(empty? listB))-1]
     [(<(abs(-(first listA)(first listB)))1)startPos]
     [(matching(rest listA)( rest listB)(+ startPos 1))]))
 
-
-
 (define a (list 6 2 4 7 8 7 ))
 (define b (list 1 5 7 3 10 9 ))
-
 
 (matching a b 0 )
 
 (define (same-speed vel1 vel2 sixty)
-(matching (map vel1 sixty )(map vel2 sixty)0))
-
+(matching (map vel1 sixty )(map vel2 sixty)0)) ; the map function works like in Python. It applies a function to each item in a list
 
 (same-speed 
 velocity velocity2 (sixty 0))
-  
