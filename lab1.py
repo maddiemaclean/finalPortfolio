@@ -37,7 +37,7 @@ a = input("Please enter your 'a' variable:")
 b = input("Please enter your 'b' variable:")
 
 while a !='X':
-    inside = ((float(a) - 1)**5)-(float(b) + 1)
+    inside = ((float(a) - 1)**5)-(float(b) + 1) #Example of casting in python
     if inside < 0:
         inside = (av(inside))
 
