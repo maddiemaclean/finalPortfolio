@@ -8,7 +8,13 @@ Lab 2: JavaScript - userInput, iteration, conditionals
 
 Lab 3: Racket - functions, recursion conditionals
 
+Lab 4: Octave -functions, conditions and iteration
+
 Lab 6: Python - fileIO, lists, split()
+
+Lab 7: JavasScript - fileIO, JSON, and strings
+
+Lab 8: Racket - Strings, lists and sets
 
 Lab 9: Octave - strings, chars, cell arrays, fileIO
 
@@ -24,19 +30,31 @@ Lab 17: Python - class creation, OOP in general, inheritance
 
 Lab 18: JavaScript - class creation, OOP in general, graphs with an adjacency list
 
+Lab 19: Racket - class creation, object instantation, accessors and mutators, methods
+
+
 # **PROGRAMMING QUESTIONS**
 
-PQ1: Python1 -
+PQ: Python 1
 
-PQ2: JavaScript1 -
+PQ: Python 2
 
-PQ3: Racket1 -
+PQ: Python 3
 
-PQ4: Python2 -
+PQ: JavaScript 1
 
-PQ5: JavaScript2 -
+PQ: JavaScript 2
 
-PQ6: Python3 -
+PQ: JavaScript 3
 
-PQ7: Octave2 -
+PQ: Racket 1 
 
+PQ: Racket 2
+
+PQ: Racket 3
+
+PQ: Octave 1
+
+PQ: Octave 2
+
+PQ: Octave 3
