@@ -1,8 +1,8 @@
 let word = "Catherine Elaine Test";
-let splitWords = word.split(" ");
+let splitWords = word.split(" "); // works as the same Python and Java split
 console.log(splitWords);
 
-const func1 = (wordsIn) => {
+const func1 = (wordsIn) => { // an example of a anonymous function in JS
     for(let i=0; i< wordsIn.length; i++){
         if(wordsIn[i].charAt(0) > 'Z' || wordsIn[i].charAt(0) < 'A'){
             return false;
@@ -38,9 +38,9 @@ console.log(func2(splitWords))
 console.log(func3(splitWords))
 
 const arr = ["Test Test", "This is a test", "This Is A Test", "Catherine Elaine", "Catherine Elaine Guil", "Does this pass?", "Question Node.js"];
-const filtered = arr.filter(sentence => {
+const filtered = arr.filter(sentence => { // filter works like the Python filter, but the format is more like an anonymous function
     const words = sentence.split(" ");
-    return func1(words) && func2(words) && func3(words);
+    return func1(words) && func2(words) && func3(words); //how to filter with multiple conditions
 });
 
 console.log(filtered);
