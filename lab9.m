@@ -1,11 +1,11 @@
 disp("")
 function retval = countLetters( stringIn )
 vector = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-function retval = countLetters(input)
-for i = 1:length (stringIn)
-	currString = toupper(stringIn);
-	if(double(currString(i)) > 64 & double(currString(i)) < 91)
-		if (vector (double(currString(i))-64 != 0))
+function retval = countLetters(input) # retval is how we return values in octave, at the end, retval will be returned.
+for i = 1:length (stringIn) # example of a for loop in octave
+	currString = toupper(stringIn); 
+	if(double(currString(i)) > 64 & double(currString(i)) < 91) # in octave () brackets are used rather than [] for arrays
+		if (vector (double(currString(i))-64 != 0)) 
 			vector(double(currString(i))-64)++;
 		else
 		    vector(double(currString(i)-64)) = 1;
@@ -21,7 +21,7 @@ function retval = starterFunction()
 	while (!feof (inputFile))
 		line = fgetl(inputFile);
 	    if(length(retval) == 0)
-			[x, ix] = max(cell2mat(countLetters(line)));
+			[x, ix] = max(cell2mat(countLetters(line))); #cell2
 		    retval(1, 1) = line;
 		    retval(1, 2) = length(line);
 		else
