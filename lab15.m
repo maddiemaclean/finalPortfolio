@@ -1,6 +1,6 @@
-f1 = @(x) ((x^2/3)-5);
+f1 = @(x) ((x^2/3)-5); %lambda function in octave
 f2 = @(x) log10(x+1);
-compareTo = @(x, y) x <= y;
+compareTo = @(x, y) x <= y; %checks to see if y is greater or equal to x.
 
 function retval = compareListPositions(f1,f2, compareTo, values)
 	retval = 0;
