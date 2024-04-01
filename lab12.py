@@ -1,6 +1,6 @@
-multiple = lambda x: x*2
-bigVal = lambda x, y: y if x < y else x if x > y else x
-evenOrOdd = lambda x: x % 2 != 0 and x > 0
+multiple = lambda x: x*2 # returns x times 2
+bigVal = lambda x, y: y if x < y else x if x > y else x 
+evenOrOdd = lambda x: x % 2 != 0 and x > 0 
 firstVowel = lambda x: x[0] in ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u']
 middleChar = lambda x: x[len(x)//2] if len(x) %2 == 0 else x[len(x)//2]
 
