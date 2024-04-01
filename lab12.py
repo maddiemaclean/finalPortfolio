@@ -20,7 +20,7 @@ print(middleChar("Testing"))
 print(middleChar("eat"))
 
 numbers = [8, 10, 7.5]
-result = map(lambda x: x*2, numbers)
+result = map(lambda x: x*2, numbers) # map(): applies a function on every item in a list. for this example applies multiple on numbers
 print(list(result))
 
 words = ["Hello!", "CompSci2613", "Lab-12"]
@@ -28,9 +28,9 @@ result2 = map(middleChar, words)
 print(list(result2))
 
 moreNumbers = [-15, -4, 0, 4, 23, 64, 101, 104, 123]
-filtered = filter(evenOrOdd, moreNumbers)
+filtered = filter(evenOrOdd, moreNumbers) # filter(): filters a list based on a function.
 print(list(filtered))
 
 names = ["alice", "bob", "Carl", "daisy", "Earl"]
-filtered2 = filter(firstVowel,names)
+filtered2 = filter(firstVowel,names) # example of filter: only returns the names that start with a vowel by using the firstVowel function
 print(list(filtered2))
