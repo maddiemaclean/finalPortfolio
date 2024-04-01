@@ -21,8 +21,8 @@ function retval = starterFunction()
 	while (!feof (inputFile))
 		line = fgetl(inputFile);
 	    if(length(retval) == 0)
-			[x, ix] = max(cell2mat(countLetters(line))); #cell2
-		    retval(1, 1) = line;
+			[x, ix] = max(cell2mat(countLetters(line))); %cell2mat converts a cell array into a matrix
+		    retval(1, 1) = line;			     %max finds the the maximum count and it's index
 		    retval(1, 2) = length(line);
 		else
 			[x, ix] = max(cell2mat(countLetters(line)));
