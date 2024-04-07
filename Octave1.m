@@ -1,5 +1,5 @@
 disp("");
-
+% how to handle CSV files in Octave
 fid = fopen('Cities.csv', 'r'); 
 cityData = textscan(fid, '%s %f %f', 'Delimiter', ',', 'HeaderLines', 1); 
 
@@ -15,6 +15,7 @@ CityCy = cityData{3}(3);
 CityDx = cityData{2}(4);
 CityDy = cityData{3}(4);
 
+% in octave you can returns multiple variables
 function [minVal, index]= calcCity(cityX,cityY,dataIn)
 	minVal = 1000.00;
 	index = 0;
