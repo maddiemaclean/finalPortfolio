@@ -1,20 +1,20 @@
 #lang racket
 (define point% (class object%(super-new)
-                 (define/public (distance other)
+                 (define/public (distance other) ; the first function in the point object, gets the eudician distance
                    (define other-x (send other get-x))
                    (define other-y (send other get-y))
                    (sqrt (+ (expt (- (send this get-x) other-x) 2)
                             (expt (- (send this get-y) other-y) 2))))
-                 (define/public (distance-range other numIn)
+                 (define/public (distance-range other numIn) ; second function in the point object, finds if the distance is about numIN
                    (cond
                      [(>(send this distance other)numIn)#f]
                      [(<(send this distance other)numIn)#t]))
-                 (define/public (triangle pointB pointC)
+                 (define/public (triangle pointB pointC) ; third function in the point object, gets the permimator of three points
                    (+(send this distance pointB)(send this distance pointC)(send pointB distance pointC)))
-                 (define/public (set-x nx) (set! x nx))
+                 (define/public (set-x nx) (set! x nx)) ; the mutator methods
                  (define/public (set-y ny) (set! y ny))
                  (define/public (set-z nz) (set! z nz))
-                 (define/public (get-x) x)
+                 (define/public (get-x) x) ; the accessor methods;
                  (define/public (get-y) y)
                  (define/public (get-z) z)
                  (init-field x y z)))
