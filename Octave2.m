@@ -65,6 +65,7 @@ function retval = getPoisson(numIn)
          retval =a * b
 endfunction
 
+%file IO which takes in each line indivually
 file = fopen('DataInput.txt','r');
 arr = {};
 while ~feof(file)
