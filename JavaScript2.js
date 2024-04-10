@@ -1,5 +1,5 @@
 const fs = require('fs');
-let toString =""
+let toString ="";
 
 fs.readFile('DataInput.txt', 'utf8', (err, data) => {
     if (err) {
@@ -11,71 +11,89 @@ fs.readFile('DataInput.txt', 'utf8', (err, data) => {
     let splicedArr = [];
     let i = 0;
 
-    while ( lines[i+1] !== 'END'){
-        let numVals = parseInt(lines[i + 2]);
-        splicedArr = lines.slice(i + 2, i + 2 + numVals);
+    while (i < lines.length) {
+        if (lines[i].trim() === 'SUM') {
+            let numVals = parseInt(lines[i + 1]);
+            splicedArr = lines.slice(i + 2, i + 2 + numVals);
+            toString += findSum(splicedArr) + "\n";
+            i += numVals + 2;
+        } 
 
-        if(lines[i] === 'SUM'){
-            toString += toString + findSum(splicedArr)+"\n"
+        else if (lines[i].trim() === 'AVG') {
+            let numVals = parseInt(lines[i + 1]);
+            splicedArr = lines.slice(i + 2, i + 2 + numVals);
+            toString += findAverage(splicedArr) + "\n";
+            i += numVals + 2; 
         }
 
-        else if (lines[i+1] === 'AVG'){
-            toString += findAverage(splicedArr)+"\n"
+        else if (lines[i].trim() === 'MAX') {
+            let numVals = parseInt(lines[i + 1]);
+            splicedArr = lines.slice(i + 2, i + 2 + numVals);
+            toString += findMax(splicedArr) + "\n";
+            i += numVals + 2; 
+        } 
+       else if (lines[i].trim() === 'MIN') {
+            let numVals = parseInt(lines[i + 1]);
+            splicedArr = lines.slice(i + 2, i + 2 + numVals);
+            toString += findMin(splicedArr) + "\n";
+            i += numVals + 2; 
         }
 
-        else if (lines[i+1] === 'MAX'){
-            toString += findMax(splicedArr)+"\n"
-        }
-
-        else if (lines[i+1] === 'MIN'){
-            toString += findMin(splicedArr)+"\n"
-        }
-
-        else if (lines[i+1] === 'FXP'){
-            let toReturn = []
-            for(let i=0; i<splicedArr.length; i++){
-                const number = parseInt(splicedArr[i]);
-                toReturn[i] = findFXP(number);  
-                toString += toReturn[i] + ", "
+        else if (lines[i].trim() === 'FXP') {
+            let numVals = parseInt(lines[i + 1]);
+            splicedArr = lines.slice(i + 2, i + 2 + numVals);
+            for (let j = 0; j < splicedArr.length; j++) {
+                const number = parseFloat(splicedArr[j]);
+                toString += findFXP(number) + ", ";
             }
-            toString += "\n "
-            return toReturn;
+            toString += "\n";
+            i += numVals + 2; 
+        }
+        
+        else if (lines[i].trim() === 'FPO') {
+            let numVals = parseInt(lines[i + 1]);
+            splicedArr = lines.slice(i + 2, i + 2 + numVals);
+            for (let j = 0; j < splicedArr.length; j++) {
+                const number = parseFloat(splicedArr[j]);
+                toString += findFPO(number) + ", ";
+            }
+            toString += "\n";
+            i += numVals + 2; 
         }
 
-        else if (lines[i+1] === 'FPO'){
-            let toReturn = []
-            for(let i=0; i<splicedArr.length; i++){
-                const number = parseInt(splicedArr[i]);
-                result[i] = findFPO(number);
-                toString += result[i] + ", "
+        else if (lines[i].trim() === 'FSIN') {
+            let numVals = parseInt(lines[i + 1]);
+            splicedArr = lines.slice(i + 2, i + 2 + numVals);
+            for (let j = 0; j < splicedArr.length; j++) {
+                const number = parseFloat(splicedArr[j]);
+                toString += findSIN(number) + ", ";
             }
-            toString += "\n "
-
+            toString += "\n";
+            i += numVals + 2;
         }
-        else if (lines[i+1] === 'FSIN'){
-            let toReturn = []
-            for(let i=0; i<splicedArr.length; i++){
-                const number = parseInt(splicedArr[i]);
-                result[i]= findSIN(number);
-                toString += result[i] + ", "
+        
+        else if (lines[i].trim() === 'FCS') {
+            let numVals = parseInt(lines[i + 1]);
+            splicedArr = lines.slice(i + 2, i + 2 + numVals);
+            for (let j = 0; j < splicedArr.length; j++) {
+                const number = parseFloat(splicedArr[j]);
+                toString += findCOS(number) + ", ";
             }
-            toString += "\n "
+            toString += "\n";
+            i += numVals + 2; 
+        } 
+        
+        else if (lines[i].trim() === 'END') {
+            break; 
+        } 
+        
+        else {
+            i++; 
         }
-
-        else if (lines[i+1] === 'FCS'){
-            let toReturn = []
-            for(let i=0; i<splicedArr.length; i++){
-                const number = parseInt(splicedArr[i]);
-                result[i] = findCOS(number)
-                toString += result[i] + ", "
-            }
-            toString += "\n "
-
-        }//end of all the ifs
-    splicedArr.length = 0;
-    i++
     }
-})
+
+    fs.writeFileSync("Output.txt", toString);
+});
 
 function findSum(arrIn){
     let sum = 0;
@@ -130,7 +148,7 @@ function findFXP(numIn){
 }
 
 function findFPO(numIn) {
-    let result = Math.pow(Math.E, -50); 
+    let result = Math.pow(Math.E, -50);
     let term = 1;
 
     for (let i = 1; i <= 50; i++) {
@@ -138,8 +156,9 @@ function findFPO(numIn) {
         result += term;
     }
 
-    return result*Math.pow(numIn)/factorial(numIn);
+    return result * Math.pow(numIn, 50) / factorial(50);
 }
+
 
 function factorial(n) {
     if (n === 0 || n === 1) {
@@ -174,5 +193,3 @@ function findCOS(numIn){
 
     return result;
 }
-
-fs.writeFileSync("Output.txt", toString);
