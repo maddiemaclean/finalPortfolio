@@ -73,57 +73,52 @@ while ~feof(file)
         arr{end+1} = line;
     end
 end
-fid = fopen('Output.txt','w');
+fclose(file); % Close the input file after reading
+
+fid = fopen('Output.txt', 'w');
 
 k = 1;
-k = str2double(k);
 while k < length(arr)
-	len = str2double(arr{k+1});
-	splicedArr = arr(k+2:len+2);
-	if arr{1,k} == "SUM"
-		castedArr = round(str2double(splicedArr));
-		fprintf(fid, [num2str(getSum(castedArr))]);
-		fprintf(fid, "\n");
-
-
-	elseif arr{1,k} == "AVG"
-		castedArr = round(str2double(splicedArr));
-		fprintf(fid, [num2str(getAvg(castedArr))]);
-		fprintf(fid, "\n");
-
-	elseif arr{1,k} == "MAX" 
-		castedArr = round(str2double(splicedArr));
-		fprintf(fid, [num2str(getMax(castedArr))]);
-		fprintf(fid, "\n");
-
-	elseif arr{1,k} == "MIN"
-		castedArr =cast(splicedArr,'int8');
-		fprintf(fid, [num2str(getMin(castedArr))]);
-		fprintf(fid, "\n");
-
-	elseif arr{1,k} == "FXP"
-		for i= 1:length
-			fprintf(fid,getExponential(str2num(splicedArr(i)))+" ");
-		end
-		fprintf(fid, "\n");
-
-	elseif arr{1,k} == "FPO"
-		for i= 1:length
-			fprintf(fid,getPoisson(str2num(splicedArr(i))) +" ");
-		end
-		fprintf(fid, "\n");
-
-	elseif arr{1,k} == "FSN"
-		for i=1:length
-			fprintf(fid,getSin(str2num(splicedArr(i))) + " ");
-		end
-		fprintf(fid, "\n");
-
-	elseif arr{1,k} == "FCS"
-		for i=1:length
-			fprintf(fid,getCos(str2num(splicedArr(i)) )+ " ");
-		end
-		fprintf(fid, "\n");
-		endif
-	k++;
+    len = str2double(arr{k+1});
+    splicedArr = arr(k+2:k+1+len);
+    if strcmp(arr{k}, "SUM")
+        castedArr = round(str2double(splicedArr));
+        fprintf(fid, [num2str(getSum(castedArr))]);
+        fprintf(fid, "\n");
+    elseif strcmp(arr{k}, "AVG")
+        castedArr = round(str2double(splicedArr));
+        fprintf(fid, [num2str(getAvg(castedArr))]);
+        fprintf(fid, "\n");
+    elseif strcmp(arr{k}, "MAX")
+        castedArr = round(str2double(splicedArr));
+        fprintf(fid, [num2str(getMax(castedArr))]);
+        fprintf(fid, "\n");
+    elseif strcmp(arr{k}, "MIN")
+        castedArr = round(str2double(splicedArr));
+        fprintf(fid, [num2str(getMin(castedArr))]);
+        fprintf(fid, "\n");
+    elseif strcmp(arr{k}, "FXP")
+        for i = 1:length(splicedArr)
+            fprintf(fid, [num2str(getExponential(str2double(splicedArr{i}))) " "]);
+        end
+        fprintf(fid, "\n");
+    elseif strcmp(arr{k}, "FPO")
+        for i = 1:length(splicedArr)
+            fprintf(fid, [num2str(getPoisson(str2double(splicedArr{i}))) " "]);
+        end
+        fprintf(fid, "\n");
+    elseif strcmp(arr{k}, "FSN")
+        for i = 1:length(splicedArr)
+            fprintf(fid, [num2str(getSin(str2double(splicedArr{i}))) " "]);
+        end
+        fprintf(fid, "\n");
+    elseif strcmp(arr{k}, "FCS")
+        for i = 1:length(splicedArr)
+            fprintf(fid, [num2str(getCos(str2double(splicedArr{i}))) " "]);
+        end
+        fprintf(fid, "\n");
+    end
+    k = k + len + 2;
 end
+
+fclose(fid); % Close the output file after writing
