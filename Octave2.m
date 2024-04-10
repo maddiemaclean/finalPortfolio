@@ -62,7 +62,7 @@ endfunction
 function retval = getPoisson(numIn)
   	 a = (2.71828 ^- 50);
      b = (50^ numIn) / factorial(numIn);
-         retval =a * b
+         retval =a * b;
 endfunction
 
 file = fopen('DataInput.txt','r');
@@ -73,7 +73,7 @@ while ~feof(file)
         arr{end+1} = line;
     end
 end
-fclose(file); % Close the input file after reading
+fclose(file); 
 
 fid = fopen('Output.txt', 'w');
 
@@ -81,37 +81,45 @@ k = 1;
 while k < length(arr)
     len = str2double(arr{k+1});
     splicedArr = arr(k+2:k+1+len);
+
     if strcmp(arr{k}, "SUM")
         castedArr = round(str2double(splicedArr));
         fprintf(fid, [num2str(getSum(castedArr))]);
         fprintf(fid, "\n");
+
     elseif strcmp(arr{k}, "AVG")
         castedArr = round(str2double(splicedArr));
         fprintf(fid, [num2str(getAvg(castedArr))]);
         fprintf(fid, "\n");
+
     elseif strcmp(arr{k}, "MAX")
         castedArr = round(str2double(splicedArr));
         fprintf(fid, [num2str(getMax(castedArr))]);
         fprintf(fid, "\n");
+
     elseif strcmp(arr{k}, "MIN")
         castedArr = round(str2double(splicedArr));
         fprintf(fid, [num2str(getMin(castedArr))]);
         fprintf(fid, "\n");
+
     elseif strcmp(arr{k}, "FXP")
         for i = 1:length(splicedArr)
             fprintf(fid, [num2str(getExponential(str2double(splicedArr{i}))) " "]);
         end
         fprintf(fid, "\n");
+
     elseif strcmp(arr{k}, "FPO")
         for i = 1:length(splicedArr)
             fprintf(fid, [num2str(getPoisson(str2double(splicedArr{i}))) " "]);
         end
         fprintf(fid, "\n");
+
     elseif strcmp(arr{k}, "FSN")
         for i = 1:length(splicedArr)
             fprintf(fid, [num2str(getSin(str2double(splicedArr{i}))) " "]);
         end
         fprintf(fid, "\n");
+
     elseif strcmp(arr{k}, "FCS")
         for i = 1:length(splicedArr)
             fprintf(fid, [num2str(getCos(str2double(splicedArr{i}))) " "]);
@@ -121,4 +129,4 @@ while k < length(arr)
     k = k + len + 2;
 end
 
-fclose(fid); % Close the output file after writing
+fclose(fid); 
