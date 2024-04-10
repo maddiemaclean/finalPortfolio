@@ -174,3 +174,5 @@ function findCOS(numIn){
 
     return result;
 }
+
+fs.writeFileSync("Output.txt", toString);
