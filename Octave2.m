@@ -65,7 +65,6 @@ function retval = getPoisson(numIn)
          retval =a * b
 endfunction
 
-%file IO which takes in each line indivually
 file = fopen('DataInput.txt','r');
 arr = {};
 while ~feof(file)
@@ -83,47 +82,48 @@ while k < length(arr)
 	splicedArr = arr(k+2:len+2);
 	if arr{1,k} == "SUM"
 		castedArr = round(str2double(splicedArr));
-		fputs(fid, [num2str(getSum(castedArr))]);
-		fputs(fid, "\n");
+		fprintf(fid, [num2str(getSum(castedArr))]);
+		fprintf(fid, "\n");
+
 
 	elseif arr{1,k} == "AVG"
 		castedArr = round(str2double(splicedArr));
-		fputs(fid, [num2str(getAvg(castedArr))]);
-		fputs(fid, "\n");
+		fprintf(fid, [num2str(getAvg(castedArr))]);
+		fprintf(fid, "\n");
 
 	elseif arr{1,k} == "MAX" 
 		castedArr = round(str2double(splicedArr));
-		fputs(fid, [num2str(getMax(castedArr))]);
-		fputs(fid, "\n");
+		fprintf(fid, [num2str(getMax(castedArr))]);
+		fprintf(fid, "\n");
 
 	elseif arr{1,k} == "MIN"
 		castedArr =cast(splicedArr,'int8');
-		fputs(fid, [num2str(getMin(castedArr))]);
-		fputs(fid, "\n");
+		fprintf(fid, [num2str(getMin(castedArr))]);
+		fprintf(fid, "\n");
 
 	elseif arr{1,k} == "FXP"
 		for i= 1:length
-			fputs(fid,getExponential(str2num(splicedArr(i)))+" ");
+			fprintf(fid,getExponential(str2num(splicedArr(i)))+" ");
 		end
-		fputs(fid, "\n");
+		fprintf(fid, "\n");
 
 	elseif arr{1,k} == "FPO"
 		for i= 1:length
-			fputs(fid,getPoisson(str2num(splicedArr(i))) +" ");
+			fprintf(fid,getPoisson(str2num(splicedArr(i))) +" ");
 		end
-		fputs(fid, "\n");
+		fprintf(fid, "\n");
 
 	elseif arr{1,k} == "FSN"
 		for i=1:length
-			fputs(fid,getSin(str2num(splicedArr(i))) + " ");
+			fprintf(fid,getSin(str2num(splicedArr(i))) + " ");
 		end
-		fputs(fid, "\n");
+		fprintf(fid, "\n");
 
 	elseif arr{1,k} == "FCS"
 		for i=1:length
-			fputs(fid,getCos(str2num(splicedArr(i)) )+ " ");
+			fprintf(fid,getCos(str2num(splicedArr(i)) )+ " ");
 		end
-		fputs(fid, "\n");
+		fprintf(fid, "\n");
 		endif
 	k++;
 end
